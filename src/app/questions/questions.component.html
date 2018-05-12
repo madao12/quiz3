@@ -1,0 +1,28 @@
+
+<div class="container">
+  <div class="col2">
+    <input type="text" [(ngModel)]="idSearch" placeholder="Search ID" >
+
+    <ol>
+      <li value="{{question.id}}" *ngFor="let question of sourceQuestions | filterID:idSearch ">
+        <p-checkbox  name="group2" [value]="question" label="{{question.name}}" [(ngModel)]="selectedValues"></p-checkbox>
+      </li>
+    </ol>
+  </div>
+  <div class="col2">
+    Selected Categories:<br> <span *ngFor="let sel of selectedValues" style="margin-right:10px">{{sel.id}}) {{sel.name}}<br> </span>
+  </div>
+</div>
+<app-quiz [selected]="selectedValues"></app-quiz>
+<div  class="container" >
+        <div class="col">
+                <a class="submits" routerLink="/quiz">start the test</a>
+        </div>
+</div>
+
+
+<input type="text" (keyup)="searchById($event.target.value)">
+<p *ngIf="question">{{question.name}}</p>
+<p *ngIf="question">{{question.id}}</p>
+
+
