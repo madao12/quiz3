@@ -1,4 +1,4 @@
-
+<!--
 <div class="container">
   <div class="col2">
     <input type="text" [(ngModel)]="idSearch" placeholder="Search ID" >
@@ -24,5 +24,18 @@
 <input type="text" (keyup)="searchById($event.target.value)">
 <p *ngIf="question">{{question.name}}</p>
 <p *ngIf="question">{{question.id}}</p>
-
-
+-->
+<div class="ui-g">
+<p-pickList [source]="sourceQuestions" [target]="selectedQuestions" [responsive]="true" [sourceStyle]="{'height':'100%'}" [targetStyle]="{'height':'100%'}" >
+  <ng-template let-question pTemplate="item">
+      <div class="ui-g">
+          <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{question.id}} - {{question.name}}}</div>
+      </div>
+  </ng-template>
+</p-pickList>
+</div>
+<div class="ui-g">
+    <div class="ui-g-12 ui-md-12 ui-lg-12">
+        <button pButton label="Start Test" type="button" style="width: 100%" routerLink="/quiz" (click)="setSelectedQuestions()"></button>
+    </div>
+</div>

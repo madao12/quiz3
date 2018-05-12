@@ -10,17 +10,21 @@ import { SELECTED } from './selected-list';
 @Injectable()
 export class QuestionService {
   questions = QUESTIONS;
-  selected = SELECTED;
+  selected: Question[];
   constructor(private http: HttpClient) { }
 
   getQuestions() {
     return this.questions;
 }
 
-  getSelected() {
+  getSelectedQuestions() {
     return this.selected;
 
 
+  }
+
+  setSelectedQuestions(questions: Question[]) {
+    this.selected = questions;
   }
 
 }

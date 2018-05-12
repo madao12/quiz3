@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { QuestionsComponent } from './questions/questions.component';
-import { SelectedQuestionsComponent } from './selected-questions/selected-questions.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { AppRoutingModule } from './/app-routing.module';
 
@@ -15,21 +14,24 @@ import { QuestionService } from './question.service';
 import { HttpClientModule } from '@angular/common/http';
 
 import {CheckboxModule} from 'primeng/checkbox';
+import {PickListModule} from 'primeng/picklist';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionsComponent,
-    SelectedQuestionsComponent,
     QuizComponent,
     FilterPipe
-  ],
+    ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     CheckboxModule,
-    HttpClientModule
+    HttpClientModule,
+    PickListModule,
+    ButtonModule
   ],
   providers: [QuestionService],
   bootstrap: [AppComponent]

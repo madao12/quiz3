@@ -12,25 +12,21 @@ import { QuestionService } from '../question.service';
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
-  sourceQuestions: Question[];
-  selectedValues: Question[] = [];
+  sourceQuestions: Question[] = [];
+  selectedQuestions: Question[] = [];
 
 
 
   constructor(private questionService: QuestionService) {
-    console.log(this.selectedValues);
+    this.sourceQuestions = this.questionService.getQuestions();
   }
 
   ngOnInit() {
     // this.questionService.getQuestions().then(questions => this.sourceQuestions = questions);
     this.sourceQuestions = this.questionService.getQuestions();
-
-
-
   }
 
-  searchById(t) {
-    console.log(t);
-
+  setSelectedQuestions() {
+    this.questionService.setSelectedQuestions(this.selectedQuestions);
   }
 }

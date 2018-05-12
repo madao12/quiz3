@@ -12,7 +12,7 @@ import { QuestionService } from '../question.service';
   styleUrls: ['./quiz.component.scss']
 })
 export class QuizComponent implements OnInit {
-  @Input() selected: Question;
+  selectedQuestions: Question[];
 
 
 
@@ -28,8 +28,8 @@ export class QuizComponent implements OnInit {
 
    }
 
-  ngOnInit() {/*
-    this.selectedValues = this.questionService.getSelected();*/
+  ngOnInit() {
+    this.selectedQuestions = this.questionService.getSelectedQuestions();
 
   }
 
